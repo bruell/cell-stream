@@ -1,0 +1,56 @@
+#
+# Makefile for libcsclient
+#
+
+PROG		= cscapp-w32.exe
+LIB			= csc-w32
+
+BASE_DIR	= ../..
+BIN_DIR		= $(BASE_DIR)/bin
+LIB_DIR		= $(BASE_DIR)/lib
+PROG_FILE	= $(BIN_DIR)/$(PROG)
+LIB_FILE	= $(LIB_DIR)/lib$(LIB).a
+
+# Sources
+SRCS		= CSApp.cpp
+LIB_SRCS	= lib/Client.cpp lib/Image.cpp lib/Mask.cpp
+
+# Objects
+OBJS		= $(SRCS:.cpp=.o)
+LIB_OBJS	= $(LIB_SRCS:.cpp=.o)
+
+# Include paths
+INCLUDE += -Ilib
+
+# Libraries
+LIBS += -L$(LIB_DIR) -l$(LIB)
+LIBS += -lboost_system -lboost_filesystem -lboost_thread -lboost_signals -lboost_date_time
+LIBS += -lws2_32 -ljpeg -lpng
+
+# Compiler options
+CXX			= g++
+AR			= ar
+RANLIB		= ranlib
+CFLAGS		= -Wall -g -O2
+CPPFLAGS	= -Wall -g -O2 -D_WIN32_WINNT=0x0501
+
+# Targets
+all:			$(PROG_FILE)
+
+$(PROG_FILE):	$(LIB_FILE) $(OBJS)
+		$(CXX) $(CPPFLAGS) -o $@ $(OBJS) $(LIBS)
+#		cp $@ /media/share/tmp/cs
+
+$(LIB_FILE):	$(LIB_OBJS)
+		$(AR) cru $@ $(LIB_OBJS)
+		$(RANLIB) $@
+
+%.o:			%.cpp
+		$(CXX) $(CPPFLAGS) $(INCLUDE) -c -o $@ $<
+
+#$(LIB_OBJS):	$(LIB_SRCS)
+#		$(CXX) $(CPPFLAGS) $(INCLUDE) -c -o $@ $<
+
+clean:
+#		del.exe /S *.o *~ *.d
+		rm -rf $(OBJS) *~ *.d

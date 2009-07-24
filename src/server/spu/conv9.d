@@ -1,0 +1,34 @@
+conv9.o conv9.i conv9.lst conv9.d : conv9.c program.h ../css.h \
+  $(CBE_SYSROOT)/usr/spu/include/stdlib.h \
+  $(CBE_SYSROOT)/usr/spu/include/_ansi.h \
+  $(CBE_SYSROOT)/usr/spu/include/newlib.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/config.h \
+  $(CBE_SYSROOT)/usr/spu/include/machine/ieeefp.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/stddef.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/reent.h \
+  $(CBE_SYSROOT)/usr/spu/include/_ansi.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/_types.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/lock.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/custom_file.h \
+  $(CBE_SYSROOT)/usr/spu/include/machine/stdlib.h \
+  $(CBE_SYSROOT)/usr/spu/include/alloca.h \
+  $(CBE_SYSROOT)/usr/spu/include/stdio.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/stdarg.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/types.h \
+  $(CBE_SYSROOT)/usr/spu/include/machine/_types.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/limits.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/syslimits.h \
+  $(CBE_SYSROOT)/usr/spu/include/limits.h \
+  $(CBE_SYSROOT)/usr/spu/include/machine/types.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/features.h \
+  $(CBE_SYSROOT)/usr/spu/include/sys/stdio.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/vec_types.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/spu_intrinsics.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/spu_internals.h \
+  $(CBE_SYSROOT)$(CELL_TOP)/usr/spu/include/libsync.h \
+  $(CBE_SYSROOT)$(CELL_TOP)/usr/spu/include/sync_utils.h \
+  ../../common.h \
+  /opt/cell/toolchain/lib/gcc/spu/4.1.1/include/spu_mfcio.h \
+  $(CBE_SYSROOT)/usr/spu/include/stdint.h \
+  $(CBE_SYSROOT)$(CELL_TOP)/usr/spu/include/libimage.h \
+  $(CBE_SYSROOT)$(CELL_TOP)/usr/spu/include/conv_defs.h
